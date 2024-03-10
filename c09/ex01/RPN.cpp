@@ -40,7 +40,8 @@ void Calculator(const std::string &input){
         }
         std::cout << pile.top() << std::endl;
 }
-//std::isstringstream()
+
+//----MATEMATHICS-----
 
 int  sum(int b, int a){
     return(b+a);
@@ -58,8 +59,7 @@ int  divide(int b, int a){
     return(b/a);
 }
 
-
-
+//----ERROR-----
 
 void error(){
 

@@ -1,5 +1,6 @@
 #include "PmergeMe.hpp"
 
+//Containers used: STD::VECTOR and STD::DEQUE
 
 int main(int argc, char **argv)
 {
@@ -9,9 +10,7 @@ int main(int argc, char **argv)
             return 1;
     }
 
-
     //Rellenar vector con input
-
     std::vector<int> sort1;
 
        std::cout << "Before: ";
@@ -33,13 +32,8 @@ int main(int argc, char **argv)
             }
        };
     std::cout << std::endl;
-       
-   
 
-    //___________
-
-   //Rellenar deque con input
-
+    //Rellenar deque con input
     std::deque<int> sort2;
        
        for (int i = 1; i < argc ; i++ ){
@@ -58,6 +52,7 @@ int main(int argc, char **argv)
                 return 1;
             }
        };
+
 
     PmergeMe::sortWithVector(sort1);
     PmergeMe::sortWithDeque(sort2);

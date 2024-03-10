@@ -11,7 +11,8 @@ const PmergeMe &PmergeMe::operator=(const PmergeMe &copy){
 
 PmergeMe::~PmergeMe(){};
 
-//______________________________SORTING STATIC FUNCTIONS ______________________________________
+//_____________________________________________________________________________________________
+//______________________________ALGORITHM STATIC FUNCTIONS ____________________________________
 
 //SORT WITH DEQUE//
 
@@ -180,7 +181,7 @@ static std::vector<int> mergeInsert(std::vector<int> vec){
 
 };
 
-
+//_____________________________________________________________________________________________
 //______________________________ PMERGEME MEMBER FUNCTIONS ______________________________________
 
 void PmergeMe::sortWithVector(std::vector<int> vec){
