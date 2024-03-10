@@ -53,7 +53,6 @@ int main(int argc, char **argv)
             }
        };
 
-
     PmergeMe::sortWithVector(sort1);
     PmergeMe::sortWithDeque(sort2);
 
