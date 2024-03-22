@@ -17,7 +17,7 @@ class BitcoinExchange{
         void bitcoinexchange(std::string date, float ammount, std::map<std::string, float> map);
        
         bool aredigit(const std::string& str);
-        int check_date(std::string date);
+        int check_date(std::string date, std::map<std::string, float> map);
         int check_value(std::string s_ammount);
         int check_line(std::string line, std::map<std::string, float> map);
         

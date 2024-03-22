@@ -16,6 +16,8 @@ void Calculator(const std::string &input){
             }
             else if(operators.find(*ptr) != std::string::npos) //es + - / *
             {
+                if (pile.size() < 2)
+                    error();
                 int a = pile.top();
                 pile.pop();
                 int b = pile.top();
@@ -38,7 +40,10 @@ void Calculator(const std::string &input){
             else 
                 error();
         }
-        std::cout << pile.top() << std::endl;
+        if (pile.size() != 1)
+            error();
+        else
+            std::cout << pile.top() << std::endl;
 }
 
 //----MATEMATHICS-----
@@ -56,6 +61,8 @@ int  multi(int b, int a){
 }
 
 int  divide(int b, int a){
+    if (a == 0)
+        error();
     return(b/a);
 }
 

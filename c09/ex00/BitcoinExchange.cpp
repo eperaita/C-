@@ -61,7 +61,7 @@ bool BitcoinExchange::aredigit(const std::string& str) {
     return true; // Si todos los caracteres son dígitos,
 }
 
-int BitcoinExchange::check_date(std::string date){
+int BitcoinExchange::check_date(std::string date, std::map<std::string, float> map){
 
     try{
         //YEAR
@@ -102,6 +102,13 @@ int BitcoinExchange::check_date(std::string date){
         std::cout << "Error: bad date input => " << date << std::endl;
         return 1 ;
     }
+    //DATE TOO OLD
+    std::map<std::string, float>::iterator iter = map.begin();
+    if (iter->first > date)
+    {
+        std::cout << "Error: date required too old." << std::endl;
+        return 1;
+    }
     return 0;
 };
 
@@ -139,7 +146,7 @@ int BitcoinExchange::check_line(std::string line, std::map<std::string, float> m
         
         date = line.substr(0, pos - 1 );
         ammount = line.substr(pos + 2 , line.size());
-        if (!check_date(date))
+        if (!check_date(date, map))
         {
             if(!check_value(ammount))
             {
@@ -185,15 +192,15 @@ void BitcoinExchange::read_files(std::string file){
     datafile.open("data.csv", std::ios::in);
     if (!datafile)
     {
-        std::cout << "Error: the file provided does not exist." << std::endl;
+        std::cout << "Error: the file data.csv does not exist." << std::endl;
         exit (1);
     }
 
     std::map<std::string, float> *map = new std::map<std::string, float>;
     while (true)
     {
+        std::string line;
         try{
-            std::string line;
             if (!std::getline(datafile, line))
             {    
                 if (datafile.eof())
@@ -205,7 +212,7 @@ void BitcoinExchange::read_files(std::string file){
             first = 1;
         }
         catch(std::exception &e){
-            std::cout << "Error: bad line input "<< std::endl; }
+            std::cout << "Error: bad input => "<< line << std::endl; }
     }
     //std::cout << "           Data read!" << std::endl;
 
@@ -218,8 +225,9 @@ void BitcoinExchange::read_files(std::string file){
 
     while (true)
     {
+        std::string line;
         try{
-            std::string line;
+            
             if (!std::getline(myfile, line))
             {    
                 if (myfile.eof())
@@ -231,7 +239,7 @@ void BitcoinExchange::read_files(std::string file){
             first = 0;
         }
         catch(std::exception &e){
-            std::cout << "Error: bad line input "<< std::endl; }
+            std::cout << "Error: bad input => "<< line << std::endl; }
     }
 
     delete map ;
