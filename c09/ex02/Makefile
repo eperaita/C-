@@ -7,13 +7,13 @@ SRC =	main.cpp\
 INC = PmergeMe.hpp\
 
 
-OBJ = $(SRC:.cpp=.o)
+OBJ = $(SRC:.cpp=.o) 
 
 PINK = \033[0;35m \033[1m
 
 CC = clang++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 #-g3 -fsanitize=address 
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address 
 
 
 all: $(NAME)
@@ -22,7 +22,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CPPFLAGS) $^ -o $(NAME)
 	@echo "\033[0;35m \033[1mReady!"
 
-%.o: %.cpp
+%.o: %.cpp 
 	$(CC) $(CPPFLAGS) -c $^ -o $@
 
 clean :

@@ -6,6 +6,7 @@
 #include <iostream>
 #include <ctime>
 
+
 class PmergeMe{
 
     private:
@@ -14,11 +15,10 @@ class PmergeMe{
         const PmergeMe &operator=(const PmergeMe &copy);
         ~PmergeMe();
 
-
     public:
         
-        static void sortWithVector(std::vector<int> vec);
-        static void sortWithDeque(std::deque<int> deq);
+        static void sortWithVector(std::vector<std::pair<int, int> > vec);
+        static void sortWithDeque(std::deque<std::pair<int, int> > deq);
 
 
 };
