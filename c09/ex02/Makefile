@@ -4,10 +4,10 @@ SRC =	main.cpp\
 		PmergeMe.cpp
 
 
-INC = PmergeMe.hpp\
+INC =	PmergeMe.hpp\
 
 
-OBJ = $(SRC:.cpp=.o) 
+OBJ = $(SRC:.cpp=.o)
 
 PINK = \033[0;35m \033[1m
 
@@ -22,7 +22,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CPPFLAGS) $^ -o $(NAME)
 	@echo "\033[0;35m \033[1mReady!"
 
-%.o: %.cpp 
+%.o: %.cpp
 	$(CC) $(CPPFLAGS) -c $^ -o $@
 
 clean :
